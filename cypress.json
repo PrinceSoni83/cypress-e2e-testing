@@ -1,0 +1,11 @@
+{
+  "retries": 1,
+  "experimentalRunEvents" : true,
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "reportDir": "cypress/results",
+    "overwrite": false,
+    "html": false,
+    "json": true
+  }
+}

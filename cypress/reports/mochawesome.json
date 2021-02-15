@@ -1,0 +1,167 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 3,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-02-15T19:02:53.101Z",
+    "end": "2021-02-15T19:03:20.943Z",
+    "duration": 25289,
+    "testsRegistered": 4,
+    "passPercent": 75,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e54c443b-0800-4b51-aa08-0fc929f531be",
+      "title": "",
+      "fullFile": "cypress/integration/demo.spec.ts",
+      "file": "cypress/integration/demo.spec.ts",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "085d9ded-9125-4cde-88d8-29e87be88ddb",
+          "title": "Demo tests on Cypress Websites",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Opens the Cypress home page",
+              "fullTitle": "Demo tests on Cypress Websites Opens the Cypress home page",
+              "timedOut": null,
+              "duration": 2770,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('li>a:contains(\"Login\")').should(\"be.visible\");\ncy.get('a:contains(\"Docs\")').should(\"be.visible\");\ncy.get(\".with-bash-effects\").should(\"contain.text\", \"npm install cypress\");",
+              "err": {},
+              "uuid": "1fc89b4e-5584-433e-afc2-338c483a7206",
+              "parentUUID": "085d9ded-9125-4cde-88d8-29e87be88ddb",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login into to cypress using invalid user name",
+              "fullTitle": "Demo tests on Cypress Websites Login into to cypress using invalid user name",
+              "timedOut": null,
+              "duration": 10097,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('li>a:contains(\"Login\")').invoke(\"removeAttr\", \"target\").click();\ncy.url().should(\"eq\", \"https://dashboard.cypress.io/login\");\ncy.get('span:contains(\"Log in with Email\")').click();\ncy.fixture('accounts').then(function (account) {\n    cy.get(\"#email\").type(account.invalidEmail);\n});\n// cy.get(\"#email\").type(\"invaliduser@cypress.com\");\ncy.get(\".btn-primary\").click();\ncy.get(\".error-message\").should(\"contain.text\", \"Missing credentials\");",
+              "err": {},
+              "uuid": "c3b81adf-0406-40cb-a132-e911e6002e3d",
+              "parentUUID": "085d9ded-9125-4cde-88d8-29e87be88ddb",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Login into to cypress using valid user name and password",
+              "fullTitle": "Demo tests on Cypress Websites Login into to cypress using valid user name and password",
+              "timedOut": null,
+              "duration": 8580,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('li>a:contains(\"Login\")').invoke(\"removeAttr\", \"target\").click();\ncy.url().should(\"eq\", \"https://dashboard.cypress.io/login\");\ncy.get('span:contains(\"Log in with Email\")').click();\n// cy.get(\"#email\").type(\"test.cypress@outlook.com\");\n// cy.get(\"#password\").type(\"cypress-automation\");\ncy.fixture('accounts').then(function (account) {\n    cy.get(\"#email\").type(account.userName);\n    cy.get(\"#password\").type(account.password);\n});\ncy.get(\".btn-primary\").click();\ncy.get('h1:contains(\"Your Organizations\")').should(\"be.visible\");",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `h1:contains(\"Your Organizations\")`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `h1:contains(\"Your Organizations\")`, but never found it.\n    at Context.eval (https://www.cypress.io/__cypress/tests?p=cypress/integration/demo.spec.ts:129:53)",
+                "diff": null
+              },
+              "uuid": "455842e5-b11c-4ca4-b8e8-3a149a68953b",
+              "parentUUID": "085d9ded-9125-4cde-88d8-29e87be88ddb",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "login with cy.request method",
+              "fullTitle": "Demo tests on Cypress Websites login with cy.request method",
+              "timedOut": null,
+              "duration": 3842,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request('POST', 'https://authenticate.cypress.io/login/local?source=dashboard', {\n    email: \"test.cypress@outlook.com\",\n    password: \"cypress-automation\"\n}).then(function (res) {\n    expect(res.status).to.eq(200);\n    expect(res).to.have.property('headers');\n    cy.visit(\"https://dashboard.cypress.io/login\");\n});",
+              "err": {},
+              "uuid": "7d29b170-78bd-4afd-aadf-c9c6837655c9",
+              "parentUUID": "085d9ded-9125-4cde-88d8-29e87be88ddb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1fc89b4e-5584-433e-afc2-338c483a7206",
+            "c3b81adf-0406-40cb-a132-e911e6002e3d",
+            "7d29b170-78bd-4afd-aadf-c9c6837655c9"
+          ],
+          "failures": [
+            "455842e5-b11c-4ca4-b8e8-3a149a68953b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 25289,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
