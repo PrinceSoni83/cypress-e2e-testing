@@ -1,4 +1,5 @@
 {
+  "baseUrl": "https://cypress.io",
   "retries": 1,
   "experimentalRunEvents" : true,
   "reporter": "mochawesome",
